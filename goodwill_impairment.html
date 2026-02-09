@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flashcards Interativos</title>
+  <style>
+    :root{
+      --card-width: 260px;
+      --card-height: 180px;
+      --primary: #8A0538;
+      --secondary: #9654ff;
+      --radius: 12px;
+      --gap: 2.5rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #f3f4f6;
+    }
+
+    .flashcards-wrapper{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--gap);
+    }
+
+    .flashcards-row{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--gap);
+      flex-wrap: wrap;
+    }
+
+    .flashcard{
+      width: var(--card-width);
+      height: var(--card-height);
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flashcard:hover .card-inner{
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .section1 .card-front{
+      background-color: var(--primary);
+      color: white;
+      font-weight: 700;
+    }
+
+    .section2 .card-front{
+      background-color: var(--secondary);
+      color: white;
+      font-weight: 700;
+    }
+
+    .card-back{
+      background-color: #ffffff;
+      color: #222;
+      transform: rotateY(180deg);
+      border: 1px solid #e5e7eb;
+      font-weight: 500;
+    }
+
+    @media (max-width: 520px){
+      .flashcards-row{
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .divider {
+      margin: 2rem 0;
+      width: 80%;
+      height: 3px;
+      background-color: #ddd;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="flashcards-wrapper">
+    <section class="section1">
+      <div class="flashcards-row">
+        <article class="flashcard" aria-label="Flashcard pergunta 1">
+          <div class="card-inner">
+            <div class="card-front">O que você precisa saber</div>
+            <div class="card-back">Conteúdo sobre Goodwill Impairment</div>
+          </div>
+        </article>
+
+        <article class="flashcard" aria-label="Flashcard 2">
+          <div class="card-inner">
+            <div class="card-front">Amortização</div>
+            <div class="card-back">Não é amortizado! O Goodwill não tem seu valor reduzido de forma sistemática ao longo do tempo.</div>
+          </div>
+        </article>
+
+        <article class="flashcard" aria-label="Flashcard 3">
+          <div class="card-inner">
+            <div class="card-front">Teste de Impairment</div>
+            <div class="card-back">Obrigatório todos os anos. Mesmo sem indícios de desvalorização.</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="flashcards-row">
+        <article class="flashcard" aria-label="Flashcard 4">
+          <div class="card-inner">
+            <div class="card-front">Relação com a UGC</div>
+            <div class="card-back">Goodwill alocado a uma UGC ou grupos de UGCs</div>
+          </div>
+        </article>
+
+        <article class="flashcard" aria-label="Flashcard 5">
+          <div class="card-inner">
+            <div class="card-front">Ordem de reconhecimento da perda</div>
+            <div class="card-back">Primeiro a absorver a perda. Se a UGC sofrer Impairment, Goodwill é o primeiro ativo reduzido.</div>
+          </div>
+        </article>
+
+        <article class="flashcard" aria-label="Flashcard 6">
+          <div class="card-inner">
+            <div class="card-front">Reversão da perda</div>
+            <div class="card-back">Perda irreversível. Perda no Goodwill não pode ser revertida.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
